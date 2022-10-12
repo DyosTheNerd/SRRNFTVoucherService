@@ -2,23 +2,28 @@
 
 # SRR NFT builder
 
-This project implements a generator for digital SRR (Startrail Registry Records)
+This project implements a generator for digital SRR (Startrail Registry Records) NFTs.
 
 ## Who is it for?
 
-### New Startrail API users
+### New Startrail API developers
 
-Wondering how to implement the API? This project gives you some code snippets to start implementing your own solutions.
+Wondering how to implement the Startrail Issue API? This project gives you some code snippets to start implementing your
+own solutions.
 
 ### Artists
 
 Want to start issuing SRR NFTs and have creative ideas using SVG files? Become a Licensed API user and use the processes
 implemented here to start minting your own SRRs.
 
-### Startbahn Services
+### Startbahn Team
 
-Want to integrate this into a business process? Run an instance to create custom SRR whenever the process requires it:
-Marketing, Sales, HR, Tech... The possibilities are limitless
+Want to integrate this into our business process? Run an instance to create custom SRR whenever the process requires it:
+
+- Marketing: Send vouchers or SRR to prospect or old customers for them to use the service again
+- Sales: Show API features and a possible process during your pitch and send your client a SRR in the end
+- HR: Raise employee engagement by having company projects based on our own products
+- Tech: Learn about our architecture
 
 ## Compatibility
 
@@ -32,8 +37,14 @@ Was tested under Ubuntu 18 LTS in local deployment.
 
 ## Running on GLITCH.io
 
-With the current version, running on glitch should work out of the box. Just deploy a new application from github or via
-this running instance.
+to setup you need to install yarn on your glitch instance
+
+- open console
+- `touch .bash_profile`
+- `curl -o- -L https://yarnpkg.com/install.sh | bash`
+- exit the console
+- open new console
+- yarn install
 
 ## Artists: Create your own SRR NFTs
 
@@ -72,6 +83,7 @@ The generated data needs to be integrated. Check the content of the following fi
     - `fragments.ts`: generated svg fragments go here.
     - `svg-content-string-factory`: builds the svg file from the fragments. Here you can put the fragments together as
       needed by your project.
+- `public/assets`: the selection preview icons go here.
 
 ## Architecture and important files
 
@@ -90,4 +102,10 @@ template which builds these parameter values into the web page the visitor sees.
     - `./pages/`: Contains the handlebars templates as well as partials
 
 - `src/data/`: some json formats
+
+## API
+
+In theory the API can be called without the page interaction, and thus be integrated in other services.
+
+Call POST '/yours' with the body params specified in `./src/custom_content/custom-params.ts`
 

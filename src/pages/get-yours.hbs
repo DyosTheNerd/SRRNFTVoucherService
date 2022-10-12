@@ -10,7 +10,9 @@
         {{#if error}}
             <div class="error-message">{{error}}</div>
         {{/if}}
-
+        {{#if success}}
+            <div class="success-message">{{success}}</div>
+        {{/if}}
         <div class="instructions">
             <h2>
                 How To:
@@ -25,13 +27,20 @@
         <div class="bunny-builder">
             <form class="bunny-builder-form" method="post">
                 {{> fragments}}
-                <label for="voucher">
+
+                <label for="customText" tabindex="-1">
+                    Give your bunny a name.<br>
+                    <input id="customText" name="customText" required="required" type="text" class="text-input">
+                </label>
+
+                <br>
+                <label for="voucher" tabindex="-1">
                     Enter your voucher code.<br>
                     <input id="voucher" name="voucher" required="required" type="text" class="text-input">
                 </label>
 
                 <br>
-                <label for="eoa">
+                <label for="eoa" tabindex="-1">
                     Enter your Ethereum address<br>
                     <input id="eoa" name="eoa" required="required" type="text" class="text-input">
                 </label>
